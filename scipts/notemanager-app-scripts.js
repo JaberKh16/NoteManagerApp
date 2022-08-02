@@ -9,6 +9,8 @@
 const unorderedlistItems = document.getElementById('listItems'); // getting the unorder list items
 // console.log(unorderedlistItems);
 
+
+// ============== Adding Note Items Feature ====================
 document.getElementById('add-btn').addEventListener('click', function(event){
     event.preventDefault(); // to resolve the refreshing issue
     const addInputField = document.getElementById('add-input'); // getting the input field
@@ -52,4 +54,75 @@ document.getElementById('add-btn').addEventListener('click', function(event){
         addInputField.value = null;
     }
     
+})
+
+
+// ============== Working With Icons Feature ====================
+unorderedlistItems.addEventListener('click', (event)=>{
+    // // e.target defint which item is being clicked on the DOM
+    // console.log(event.target);
+
+
+    // checking if editIcon is being click or not
+    if(event.target.classList[1] === "fa-pencil-square-o"){
+        console.log('edit');
+        // getting its parent property which is <p>...<p>
+        const parentProp = event.target.parentNode;
+        // console.log(parentProp);
+        // hiding the icons
+        parentProp.style.display = 'none';
+        
+        // taking the previous and next sibling element
+        // though we need to gets those value when edit
+        const editContent = parentProp.previousElementSibling;
+        // editContent.innerHTML = "Edit Note";
+        const editInput = parentProp.nextElementSibling;
+        // console.log(textParaContent, editInput);
+
+        // making the editInput showed as block element
+        editInput.style.display = "block";
+        // getting the user provide value and added it into the 
+        editInput.value = editContent.textContent;
+        console.log(editContent, editInput);
+
+        editInput.addEventListener('keypress', function(event){
+            // console.log(event); // resulted KeyboardEvent object
+            if(event.keyCode === 13){ // checking if user press 'enter' key
+                // if the editInput field has some then only update
+                if(editInput.value != ''){
+                    editContent.textContent = editInput.value;
+                    console.log(editContent);
+                    // updating parent afte pressed
+                    parentProp.style.display = 'block';
+                    editInput.style.display = 'none';
+                }
+                
+            }
+        })
+    }
+    // when clicked on the deleteIcon
+    else if(event.target.classList[1]=== "fa-times"){
+        const individualList = event.target.parentNode.parentNode;
+        console.log(individualList);
+        individualList.parentNode.removeChild(individualList);
+    }
+})
+
+
+// ============== Working With Hiding Feature ====================
+const hideItem = document.getElementById('hide');
+hideItem.addEventListener('click', function(){
+    // selecting the label item from the hiding feature
+    const hideLabel = document.querySelector('div>label')
+
+    if(hideItem.checked){ // if the hideItem is checked
+        hideLabel.textContent = "Unhide Notes";
+        // on click hide the whole list items
+        unorderedlistItems.style.display = 'none';
+    }
+    else{
+        hideLabel.textContent = "Hide Notes";
+        // on click again unhide the whole list items
+        unorderedlistItems.style.display = 'block';
+    }
 })

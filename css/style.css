@@ -5,7 +5,7 @@
 
 body {
 	font-family: 'Josefin Sans', sans-serif;
-    color: #777;
+    color: #7a1111;
 }
 
 .wrapper {
@@ -16,7 +16,7 @@ body {
     box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
     box-sizing: border-box;
     padding: 0 0 20px;
-    border: 1px solid lightgray;
+    border: 1px solid rgb(40, 44, 100)
 }
 
 .changeBg {
@@ -31,19 +31,19 @@ body {
 input {
     color: #777;
     outline: none;
-    border: 1px solid #777;
+    border: 1px solid #0c0c0c7a;
 }
 input:focus {
     border: 1px solid green;
 }
 header {
     text-align: center;
-    background: #efefef;
+    background: #2b41a1;
 }
 
 header h2 {
     padding: 40px 0 20px 0;
-    color: #555;
+    color: #dddddd;
 }
 
 header #search-note input{
@@ -105,7 +105,7 @@ header #search-note input{
 }
 
 #hide-list input[type='checkbox'] {
-    display: none;
+    display: inline-block; /* changing back to inline-block */
 }
 
 form#add{
@@ -125,7 +125,7 @@ form#add input[type='text'] {
 form#add input[type='submit'] {
     padding: 5px 0;
     width: 70px;
-    background: #6B8E23;
+    background: #1c5b97;
     color: #fff;
 } 
 
