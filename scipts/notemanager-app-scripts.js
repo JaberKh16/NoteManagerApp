@@ -126,3 +126,33 @@ hideItem.addEventListener('click', function(){
         unorderedlistItems.style.display = 'block';
     }
 })
+
+
+// ============== Working With Searching Feature ====================
+const searchInput = document.querySelector('#search-note > input'); // selecting the search-note input box
+searchInput.addEventListener('keyup', function(event){ // event 'keyup' indicates which key is pressed
+    // selecting each character
+    const searchCharacter = event.target.value.toUpperCase(); // taking the uppercase of the pressed key
+    // console.log(searchCharacter); 
+
+    // getting all the notes been available
+    const availableNotes = unorderedlistItems.getElementsByTagName('li');
+    // console.log(availableNotes); // prints the HTMLCollection of selected lists
+
+    // Array.from(HTMLCollection) to convert it to an array
+    // Array.forEach(callbackFn) to iterate over the collection 
+    Array.from(availableNotes).forEach(function(availableNotes){
+        // taking the first child from the list and needs it textual content
+        const perParaText = availableNotes.firstElementChild.textContent;
+        // console.log(perParaText);
+
+        // checking if the entered character match with "searchCharacter"
+        // generally here checking is- FIRST NOTE.indexOf('FI')
+        if(perParaText.toUpperCase().indexOf(searchCharacter) !== -1){
+            availableNotes.style.display = 'block';
+        }
+        else{
+            availableNotes.style.display = 'none';
+        }
+    });
+});
