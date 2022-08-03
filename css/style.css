@@ -13,10 +13,10 @@ body {
     max-width: 760px;
     margin: 20px auto;
     border-radius: 3px;
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 3px #00000033;
     box-sizing: border-box;
     padding: 0 0 20px;
-    border: 1px solid rgb(40, 44, 100)
+    border: 1px solid #282c64
 }
 
 .changeBg {
@@ -61,8 +61,8 @@ header #search-note input{
 .note-list ul li {
     padding: 5px;
     margin-bottom: 10px;
-    border-bottom: 0.1px solid #ccc;
-    border-left: 5px solid #efefef;
+    border-bottom: 0.1px solid #9bad7e;
+    border-left: 5px solid #085722;
 }
 
 .note-list ul li p:nth-child(2) {
